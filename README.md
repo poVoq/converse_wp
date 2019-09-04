@@ -16,6 +16,6 @@ See: https://wordpress.org/plugins/conversejs/
 
 # Thanks
 
-- Camran for the origonal work on this plugin
+- Camaran for the origonal work on this plugin
 - JCbrand for the great work on ConverseJS
 - All the XMPP developer community :)
