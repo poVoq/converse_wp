@@ -3,9 +3,9 @@
 Plugin Name: ConverseJS
 Plugin URI: https://conversejs.org/
 Description: This plugin add the javascript code for Converse.js a Jabber/XMPP chat for your WordPress.
-Version: 4.2.0
-Author: camaran
-Author URI: http://www.chatme.im
+Version: 5.0.1
+Author: camaran & poVoq
+Author URI: https://github.com/poVoq/converse_wp
 Text Domain: conversejs
 */
 
@@ -15,13 +15,13 @@ static private $default 	= array(
 				'languages' 				=> '/languages/',
 				'language' 				    => '',	
 				'webchat' 				    => 'https://conversejs.org/http-bind/',
-				'providers_link'			=> 'http://chatme.im/servizi/domini-disponibili/',
-				'placeholder'				=> ' e.g. chatme.im',
+				'providers_link'			=> 'http://example.com/',
+				'placeholder'				=> ' e.g. example.com',
 				'call'					    => 'false',
 				'carbons'				    => 'false',
 				'foward'				    => 'false',
 				'panel'					    => 'true',
-				'conver'				    => '4.2.0',
+				'conver'				    => '5.0.1',
 				'custom'				    => '',
 				'clear'					    => 'true', 
 				'emoticons'				    => 'false', 
@@ -79,11 +79,11 @@ static private $default 	= array(
     function conversejs_add_privacy_policy_content() {
  
         $content = sprintf(
-            __( 'When you use the Chat service we send the data (username, password and every conversations data) to ChatMe server.
+            __( 'When you use a XMPP chat service it transmits some data (username, password and hopefully OMEMO encrypted conversations data) to the XMPP server(s).
  
-                For more details you can see <a href="%s" target="_blank">Privacy Policy of ChatMe</a>.',
+                For more details you can see <a href="%s" target="_blank">Privacy Policy of this service</a>.',
                 'conversejs' ),
-                'https://chatme.im/informazioni-legali/privacy/'
+                'https://example.com/privacy/'
     );
  
         wp_add_privacy_policy_content(
@@ -93,7 +93,7 @@ static private $default 	= array(
     }
 
     function add_action_converse_links ( $links ) {
-      	$mylinks = array( '<a href="' . admin_url( 'admin.php?page=' . self::$default['plugin_options_key'] ) . '">' . __( 'Settings', 'conversejs' ) . '</a>', '<a href="http://chatme.im/prodotto/servizio-im-proprio-dominio/" target="_blank">' . __('Enable your Domain for Chat service', 'conversejs') . '</a>' );
+      	$mylinks = array( '<a href="' . admin_url( 'admin.php?page=' . self::$default['plugin_options_key'] ) . '">' . __( 'Settings', 'conversejs' ) . '</a>', '<a href="http://example.com" target="_blank">' . __('Get hosted XMPP', 'conversejs') . '</a>' );
       	return array_merge( $links, $mylinks );
       	      	}
 
@@ -103,28 +103,28 @@ static private $default 	= array(
         $screen->add_help_tab( array(
               	      	'id'		=> 'converse_help_tab',
               	      	'title'		=> esc_html__('Bosh Server', 'conversejs'),
-              	      	'content'	=> '<p>' . esc_html__( 'The Bind Server used from ConverseJS to connect to XMPP server, you can use', 'conversejs') . ' <b>' . esc_html__('https://bind.chatme.im', 'conversejs' ) . '</b> ' . esc_html__('for all XMPP service login.', 'conversejs' ) . '<br/><br/>' . esc_html__('Variable:', 'conversejs' ) . ' <i>' . esc_html__('bosh_service_url', 'conversejs' ) . '</i><br/>' . esc_html__('Default value:', 'conversejs' ) . ' <i>' . esc_html__('https://bind.chatme.im', 'conversejs' ) . '</i></p><p>' . esc_html__('With support for keepAlive sessione between wordpress page and post (For example you can chat without relogin in every page of the site).', 'conversejs' ) . '</p><p>' . esc_html__('The plugin read automatically the setting from DNS record (_xmppconnect.domain) of domain where is installed, if the record is not present the plugin use default value or read from option setting if you give one.', 'conversejs' ) . '</p>',
+              	      	'content'	=> '<p>' . esc_html__( 'The Bind Server used from ConverseJS to connect to XMPP server, you can use', 'conversejs') . ' <b>' . esc_html__('https://bind.example.com', 'conversejs' ) . '</b> ' . esc_html__('for all XMPP service login.', 'conversejs' ) . '<br/><br/>' . esc_html__('Variable:', 'conversejs' ) . ' <i>' . esc_html__('bosh_service_url', 'conversejs' ) . '</i><br/>' . esc_html__('Default value:', 'conversejs' ) . ' <i>' . esc_html__('https://bind.example.com', 'conversejs' ) . '</i></p><p>' . esc_html__('With support for keepAlive sessione between wordpress page and post (For example you can chat without relogin in every page of the site).', 'conversejs' ) . '</p><p>' . esc_html__('The plugin read automatically the setting from DNS record (_xmppconnect.domain) of domain where is installed, if the record is not present the plugin use default value or read from option setting if you give one.', 'conversejs' ) . '</p>',
           	      	) );
 
         $screen->add_help_tab( array(
               	      	'id'		=> 'converse_help_tab_3',
               	      	'title'		=> esc_html__('Provider Link', 'conversejs'),
-              	      	'content'	=> '<p>' . esc_html__( 'The link with XMPP service list, for example:', 'conversejs') . ' <b>' . esc_html__( 'http://chatme.im/servizi/domini-disponibili/', 'conversejs') . '</b>.<br/><br/>' . esc_html__( 'Variable:', 'conversejs') . ' <i>' . esc_html__( 'providers_link', 'conversejs') . '</i><br/>' . esc_html__('Default value:', 'conversejs'). ' <i>' . esc_html__('http://chatme.im/servizi/domini-disponibili/', 'conversejs') . '</i></p>',
+              	      	'content'	=> '<p>' . esc_html__( 'The link with XMPP service list, for example:', 'conversejs') . ' <b>' . esc_html__( 'http://example.com/', 'conversejs') . '</b>.<br/><br/>' . esc_html__( 'Variable:', 'conversejs') . ' <i>' . esc_html__( 'providers_link', 'conversejs') . '</i><br/>' . esc_html__('Default value:', 'conversejs'). ' <i>' . esc_html__('http://example.com/', 'conversejs') . '</i></p>',
           	      	) );
 
         $screen->add_help_tab( array(
               	      	'id'		=> 'converse_help_tab_4',
               	      	'title'		=> esc_html__('Register Placeholder', 'conversejs'),
-              	      	'content'	=> '<p>' . esc_html__( 'The placeholder that show in register page.', 'conversejs') . '<br/><br/>' . esc_html__( 'Variable:', 'conversejs') . ' <i>' . esc_html__( 'domain_placeholder', 'conversejs') . '</i><br/>' . esc_html__( 'Default value:', 'conversejs') . ' <i>' . esc_html__( 'e.g. chatme.im', 'conversejs') . '</i></p>',
+              	      	'content'	=> '<p>' . esc_html__( 'The placeholder that show in register page.', 'conversejs') . '<br/><br/>' . esc_html__( 'Variable:', 'conversejs') . ' <i>' . esc_html__( 'domain_placeholder', 'conversejs') . '</i><br/>' . esc_html__( 'Default value:', 'conversejs') . ' <i>' . esc_html__( 'e.g. example.com', 'conversejs') . '</i></p>',
           	      	) );
 
         $screen->set_help_sidebar(
-                              '<p><strong>' . esc_html__('Other Resources', 'conversejs') . '</strong></p><p><a href="https://conversejs.org/" target="_blank">' . esc_html__('ConverseJS Official Site', 'conversejs') . '</a></p><p><a href="https://conversejs.org/docs/html/index.htmls" target="_blank">' . esc_html__('ConverseJS Official Documentation', 'conversejs') . '</a></p><p><a href="http://xmpp.net" target="_blank">' . esc_html__('XMPP.net', 'conversejs') . '</a></p><p><a href="http://chatme.im" target="_blank">' . esc_html__('ChatMe Site', 'conversejs') . '</a></p>'
+                              '<p><strong>' . esc_html__('Other Resources', 'conversejs') . '</strong></p><p><a href="https://conversejs.org/" target="_blank">' . esc_html__('ConverseJS Official Site', 'conversejs') . '</a></p><p><a href="https://conversejs.org/docs/html/index.htmls" target="_blank">' . esc_html__('ConverseJS Official Documentation', 'conversejs') . '</a></p><p><a href="http://xmpp.net" target="_blank">' . esc_html__('XMPP.net', 'conversejs') . '</a></p><p><a href="http://example.com" target="_blank">' . esc_html__('example site', 'conversejs') . '</a></p>'
                              );
       	      	}
 
 	function add_user_conversejs_xmpp($profile_fields) {
-		$profile_fields['conversejs_xmpp'] = __( 'ChatMe Username', 'conversejs' );
+		$profile_fields['conversejs_xmpp'] = __( 'XMPP Username', 'conversejs' );
 		return $profile_fields;
 		}
 
@@ -166,7 +166,10 @@ static private $default 	= array(
 		wp_enqueue_style( 'conversejs' );
 
 		wp_register_script( 'conversejs', plugins_url( '/core/converse.min.js', __FILE__ ), array(), self::$default['conver'], true );
-		wp_enqueue_script( 'conversejs' );	
+		wp_enqueue_script( 'conversejs' );
+		
+		wp_register_script( 'conversejs', plugins_url( '/core/libsignal-protocol.min.js', __FILE__ ), array(), self::$default['conver'], true );
+		wp_enqueue_script( 'conversejs' );
 
 		$setting = array(
 				'language'				=> esc_html(get_option('language')),
@@ -327,7 +330,7 @@ static private $default 	= array(
 ?>
 <div class="wrap">
 	<h1>ConverseJS</h1>
-	<p><?php esc_html_e('For more information visit', 'conversejs'); ?> <a href='http://www.chatme.im' target='_blank'><?php esc_html_e('www.chatme.im', 'conversejs'); ?></a> - <a href="https://webchat.chatme.im/?r=support" target="_blank"><?php esc_html_e('Support Chat Room', 'conversejs'); ?></a> - <a href="https://conversejs.org/" trget="_blank"><?php esc_html_e('ConverseJS.org', 'conversejs'); ?></a> - <a href="http://chatme.im/prodotto/servizio-im-proprio-dominio/" target="_blank"><?php esc_html_e('Enable your domain in Chat Service', 'conversejs'); ?></a></p>
+	<p><?php esc_html_e('For more information visit', 'conversejs'); ?> <a href='http://www.example.com' target='_blank'><?php esc_html_e('www.example.com', 'conversejs'); ?></a> - <a href="https://webchat.example.com/?r=support" target="_blank"><?php esc_html_e('Support Chat Room', 'conversejs'); ?></a> - <a href="https://conversejs.org/" trget="_blank"><?php esc_html_e('ConverseJS.org', 'conversejs'); ?></a> - <a href="http://example.com/" target="_blank"><?php esc_html_e('Get your own XMPP server', 'conversejs'); ?></a></p>
 
 	<form method="post" action="options.php">
     	<?php settings_fields( 'converse_options_list' ); ?>
@@ -353,7 +356,7 @@ static private $default 	= array(
 			<?php esc_html_e('Automatic Selected or', 'conversejs'); ?> 
         		<input class="regular-text code" aria-describedby="bosh-description" id="bosh" name="bosh" type="url" placeholder="<?php esc_html_e('bosh service', 'conversejs'); ?>" value="<?php echo get_option('bosh'); ?>">
 			<p class="description" id="bosh-description">
-				<?php esc_html_e('We suggest: https://bind.chatme.im (With keepAlive support between wordpress page)', 'conversejs'); ?><br/>
+				<?php esc_html_e('We suggest: https://bind.example.com (With keepAlive support between wordpress page)', 'conversejs'); ?><br/>
 				<?php printf( esc_html__('The automatic value of bosh server read from DNS record (if present) of your domain is %s else we use the default value or the value you set in this page.', 'conversejs'), self::getHost() ); ?>
 			</p>
         	</td>
@@ -362,7 +365,7 @@ static private $default 	= array(
         	<tr valign="top">
         		<th scope="row"><label for="providers_link"><?php esc_html_e('Provider Link', 'conversejs'); ?></label></th>
         	<td>
-        		<input class="regular-text code" aria-describedby="link-description" id="providers_link" name="providers_link" type="url" placeholder="<?php esc_html_e('provider link', 'conversejs'); ?>" value="<?php echo get_option('providers_link'); ?>"><p class="description" id="link-description"><?php esc_html_e('We suggest http://chatme.im/servizi/domini-disponibili/', 'conversejs'); ?></p>
+        		<input class="regular-text code" aria-describedby="link-description" id="providers_link" name="providers_link" type="url" placeholder="<?php esc_html_e('provider link', 'conversejs'); ?>" value="<?php echo get_option('providers_link'); ?>"><p class="description" id="link-description"><?php esc_html_e('We suggest http://example.com', 'conversejs'); ?></p>
         	</td>
         	</tr> 
 
@@ -474,7 +477,9 @@ static private $default 	= array(
 				<option value="ja" <?php selected('ja', get_option('language')); ?>><?php esc_html_e('Japan', 'conversejs'); ?></option>
 				<option value="nb" <?php selected('nb', get_option('language')); ?>><?php esc_html_e('Norwegian', 'conversejs'); ?></option>
 				<option value="nl" <?php selected('nl', get_option('language')); ?>><?php esc_html_e('Nederlands', 'conversejs'); ?></option>
-				<option value="pl" <?php selected('pl', get_option('language')); ?>><?php esc_html_e('Polish', 'conversejs'); ?></option>	
+				<option value="oc" <?php selected('oc', get_option('language')); ?>><?php esc_html_e('Catalan', 'conversejs'); ?></option>
+				<option value="pl" <?php selected('pl', get_option('language')); ?>><?php esc_html_e('Polish', 'conversejs'); ?></option>
+				<option value="pt" <?php selected('pt', get_option('language')); ?>><?php esc_html_e('Portuguese', 'conversejs'); ?></option>
 				<option value="ro" <?php selected('ro', get_option('language')); ?>><?php esc_html_e('Romanian', 'conversejs'); ?></option>
 				<option value="ru" <?php selected('ru', get_option('language')); ?>><?php esc_html_e('Russian', 'conversejs'); ?></option>
 				<option value="uk" <?php selected('uk', get_option('language')); ?>><?php esc_html_e('Ukrainian', 'conversejs'); ?></option>
@@ -540,7 +545,7 @@ static private $default 	= array(
 			<tr valign="top">
 				<th scope="row"><label for="registration_domain"><?php esc_html_e('Registration Domain', 'conversejs'); ?></label></th>
 			<td>
-				<input class="regular-text code" aria-describedby="registration_domain-description" id="registration_domain" name="registration_domain" type="text" placeholder="<?php esc_html_e('Registration Domain', 'conversejs'); ?>" value="<?php echo get_option('registration_domain'); ?>"><p class="description" id="registration_domain-description"><?php esc_html_e('We suggest chatme.im', 'conversejs'); ?></p>
+				<input class="regular-text code" aria-describedby="registration_domain-description" id="registration_domain" name="registration_domain" type="text" placeholder="<?php esc_html_e('Registration Domain', 'conversejs'); ?>" value="<?php echo get_option('registration_domain'); ?>"><p class="description" id="registration_domain-description"><?php esc_html_e('We suggest example.com', 'conversejs'); ?></p>
 			</td>
 		</tr>
 
@@ -548,18 +553,7 @@ static private $default 	= array(
 
 	<?php submit_button(); ?>
 
-	<p><?php esc_html_e('For each request you can use our', 'conversejs') ?> <a href="http://chatme.im/forums" target="_blank"><?php esc_html_e('forum', 'conversejs') ?></a></p>
-
-</form>
-	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-	<input type="hidden" name="cmd" value="_s-xclick">
-	<input type="hidden" name="hosted_button_id" value="8CTUY8YDK5SEL">
-	<input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
-	<img alt="" border="0" src="https://www.paypalobjects.com/it_IT/i/scr/pixel.gif" width="1" height="1">
-</form>
-
-	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://chatme.im" data-text="Visita chatme.im" data-via="chatmeim" data-lang="it">Tweet</a>
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<p><?php esc_html_e('For each request you can use our', 'conversejs') ?> <a href="http://forum.example.com" target="_blank"><?php esc_html_e('forum', 'conversejs') ?></a></p>
 
 </div>
 <?php
