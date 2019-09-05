@@ -1,13 +1,12 @@
 === ConverseJS ===
-Contributors: camaran
-Donate link: https://www.paypal.me/ThomasCamaran
-Tags: chat, converse, xmpp, jabber, chatme, irc
+Contributors: camaran & poVoq
+Tags: chat, converse, xmpp, jabber
 Requires at least: 4.6
-Tested up to: 5.2
+Tested up to: 5.2.2
 Requires PHP: 7.1
-Stable tag: 4.2.0
+Stable tag: 5.0.1
 License: GPLv3 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Converse.js is an open source webchat client, that runs in the browser and can be integrated into any website.
 
@@ -17,42 +16,9 @@ Converse.js is an open source webchat client, that runs in the browser and can b
 
 It's similar to Facebook chat, but also supports multi-user chatrooms.
 
-Converse.js can connect to any accessible XMPP/Jabber server, either from a public provider such as chatme.im, or to one you have set up yourself.
+Converse.js can connect to any accessible XMPP/Jabber server, either from a public provider, or to one you have set up yourself.
 
-For more information, check out [conversejs](https://conversejs.org/) and [chatme](https://chatme.im/).
-
-= Special Thanks =
-* To my sister for having tolerated
-* My doctor for support
-* My work for the economic support
-
-= Features =
-* Single-user chat
-* Multi-user chatrooms [XEP 45](http://xmpp.org/extensions/xep-0045.html)
-* Direct invitations to chat rooms [XEP 249](http://xmpp.org/extensions/xep-0249.html)
-* vCard support [XEP 54](http://xmpp.org/extensions/xep-0054.html)
-* Service discovery [XEP 30](http://xmpp.org/extensions/xep-0030.html)
-* In-band registration [XEP 77](http://xmpp.org/extensions/xep-0077.html)
-* Contact rosters and groups
-* Contact subscriptions
-* Roster item exchange [XEP 144](http://xmpp.org/extensions/tmp/xep-0144-1.1.html)
-* Chat statuses (online, busy, away, offline)
-* Custom status messages
-* Typing and chat state notifications [XEP 85](http://xmpp.org/extensions/xep-0085.html)
-* Desktop notification messages
-* Messages appear in all connected chat clients [XEP 280](http://xmpp.org/extensions/xep-0280.html)
-* Third person "/me" messages [XEP 245](http://xmpp.org/extensions/xep-0245.html)
-* XMPP Ping [XEP 199](http://xmpp.org/extensions/xep-0199.html)
-* Server-side archiving of messages [XEP 313](http://xmpp.org/extensions/xep-0313.html)
-* Client state indication [XEP 352](http://xmpp.org/extensions/xep-0352.html)
-* Off-the-record encryption
-* Translated into 16 languages
-
-Hand-crafted, and made with love, in [Rosolina](http://rosolina.me), Italy.
-
-Based on [Converse.js](http://conversejs.org/).
-
-For Every request visit our [Forum](https://chatme.im/forums)
+For more information, check out [conversejs](https://conversejs.org/).
 
 == Installation ==
 
@@ -94,6 +60,11 @@ No, if the plugin not found TXT record work with default bind server or with the
 2. The chat admin panel
 
 == Changelog ==
+= 5.0.1 =
+* ConverseJS [5.0.1](https://github.com/conversejs/converse.js/releases/tag/v5.0.1)
+* Clean up
+* Add libsignal.js for OMEMO
+* Switch to GPLv3 in compliance with libsignal.js
 
 = 4.2.0 = 
 * ConverseJS [4.2.0](https://github.com/conversejs/converse.js/releases/tag/v4.2.0)
