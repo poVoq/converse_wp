@@ -356,7 +356,8 @@ static private $default 	= array(
 			<?php esc_html_e('Automatic Selected or', 'conversejs'); ?> 
         		<input class="regular-text code" aria-describedby="bosh-description" id="bosh" name="bosh" type="url" placeholder="<?php esc_html_e('bosh service', 'conversejs'); ?>" value="<?php echo get_option('bosh'); ?>">
 			<p class="description" id="bosh-description">
-				<?php esc_html_e('We suggest: https://bind.example.
+				<?php esc_html_e('We suggest: https://bind.example.com (With keepAlive support between wordpress page)', 'conversejs'); ?><br/>
+				<?php printf( esc_html__('The automatic value of bosh server read from DNS record (if present) of your domain is %s else we use the default value or the value you set in this page.', 'conversejs'), self::getHost() ); ?>
 			</p>
         	</td>
         	</tr> 
