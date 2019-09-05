@@ -172,21 +172,21 @@ static private $default 	= array(
 		wp_enqueue_script( 'conversejs' );
 
 		$setting = array(
-				'language'				=> esc_html(get_option('language')),
-				'webchat'				=> esc_js( self::getHost() ),
+				'language'			=> esc_html(get_option('language')),
+				'webchat'			=> esc_js( self::getHost() ),
 				'providers_link'		=> esc_url(get_option('providers_link')),
 				'placeholder'			=> esc_js(get_option('placeholder')),
-				'call'					=> esc_html(get_option('call')),
-				'carbons'				=> esc_html(get_option('carbons')),
-				'foward'				=> esc_html(get_option('foward')),
-				'panel'					=> esc_html(get_option('panel')),
-				'custom'				=> wp_kses(get_option('custom'),''),
-				'clear'					=> esc_html(get_option('clear')),
-				'emoticons'				=> esc_html(get_option('emoticons')),
-				'toggle_participants'	=> esc_html(get_option('toggle_participants')), 
+				'call'				=> esc_html(get_option('call')),
+				'carbons'			=> esc_html(get_option('carbons')),
+				'foward'			=> esc_html(get_option('foward')),
+				'panel'				=> esc_html(get_option('panel')),
+				'custom'			=> wp_kses(get_option('custom'),''),
+				'clear'				=> esc_html(get_option('clear')),
+				'emoticons'			=> esc_html(get_option('emoticons')),
+				'toggle_participants'		=> esc_html(get_option('toggle_participants')), 
 				'play_sounds'			=> esc_html(get_option('play_sounds')),
 				'xhr_user_search'		=> esc_html(get_option('xhr_user_search')),
-				'prebind'				=> esc_html(get_option('prebind')),
+				'prebind'			=> esc_html(get_option('prebind')),
 				'hide_muc_server'		=> esc_html(get_option('hide_muc_server')),
 				'auto_list_rooms'		=> esc_html(get_option('auto_list_rooms')),
 				'auto_subscribe'		=> esc_html(get_option('auto_subscribe')),	
@@ -197,7 +197,7 @@ static private $default 	= array(
 				'auto_list_rooms'		=> esc_html(get_option('auto_list_rooms')),
 				'auto_subscribe'		=> esc_html(get_option('auto_subscribe')),
 				'authentication'		=> esc_html(get_option('authentication')),
-				'hide_offline_users'	=> esc_html(get_option('hide_offline_users')),
+				'hide_offline_users'		=> esc_html(get_option('hide_offline_users')),
 				'allow_otr'			    => esc_html(get_option('allow_otr')),
 				'cache_otr_key'			=> esc_html(get_option('cache_otr_key')),
 				'auto_away'			    => esc_html(get_option('auto_away')),
@@ -206,9 +206,9 @@ static private $default 	= array(
 				'auto_join_rooms'		=> esc_js(get_option('auto_join_rooms')),
 				'join_rooms_nick'		=> $current_user->display_name,	
 				'logout'			    => esc_url(get_option('logout')),
-				'conversejs_priority'	=> (int) get_option('conversejs_priority'),
+				'conversejs_priority'		=> (int) get_option('conversejs_priority'),
 				'show_send_button' 		=> esc_html(get_option('show_send_button')),
-				'registration_domain' 	=> esc_html(get_option('registration_domain')),
+				'registration_domain' 		=> esc_html(get_option('registration_domain')),
                 'allow_registration'    => esc_html(get_option('allow_registration')),
                 'conversejs_theme'      => esc_html(get_option('conversejs_theme'))
 		);
@@ -356,8 +356,7 @@ static private $default 	= array(
 			<?php esc_html_e('Automatic Selected or', 'conversejs'); ?> 
         		<input class="regular-text code" aria-describedby="bosh-description" id="bosh" name="bosh" type="url" placeholder="<?php esc_html_e('bosh service', 'conversejs'); ?>" value="<?php echo get_option('bosh'); ?>">
 			<p class="description" id="bosh-description">
-				<?php esc_html_e('We suggest: https://bind.example.com (With keepAlive support between wordpress page)', 'conversejs'); ?><br/>
-				<?php printf( esc_html__('The automatic value of bosh server read from DNS record (if present) of your domain is %s else we use the default value or the value you set in this page.', 'conversejs'), self::getHost() ); ?>
+				<?php esc_html_e('We suggest: https://bind.example.
 			</p>
         	</td>
         	</tr> 
@@ -400,7 +399,7 @@ static private $default 	= array(
          	<tr valign="top">
         		<th scope="row"><label for="auto_join_rooms"><?php esc_html_e('Auto Join MUC Chat', 'conversejs'); ?></label></th>
         	<td>
-        		<input class="regular-text code" aria-describedby="auto_join_rooms-description" id="auto_join_rooms" name="auto_join_rooms" type="text" placeholder="<?php esc_html_e('piazza@conference.chatme.im', 'conversejs'); ?>" value="<?php echo get_option('auto_join_rooms'); ?>"><p class="description" id="auto_join_rooms-description"><?php esc_html_e('Auto Join MUC when login', 'conversejs'); ?></p>
+        		<input class="regular-text code" aria-describedby="auto_join_rooms-description" id="auto_join_rooms" name="auto_join_rooms" type="text" placeholder="<?php esc_html_e('muc123@conference.example.com', 'conversejs'); ?>" value="<?php echo get_option('auto_join_rooms'); ?>"><p class="description" id="auto_join_rooms-description"><?php esc_html_e('Auto Join MUC when login', 'conversejs'); ?></p>
         	</td>
         	</tr> 
 
