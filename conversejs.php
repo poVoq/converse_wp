@@ -386,7 +386,7 @@ static private $default 	= array(
         	<tr valign="top">
         		<th scope="row"><label for="placeholder"><?php esc_html_e('Register Placeholder', 'conversejs'); ?></label></th>
         	<td>
-        		<input class="regular-text code" aria-describedby="placeholder-description" id="placeholder" name="placeholder" type="text" placeholder="<?php esc_html_e('e.g. chatme.im', 'conversejs'); ?>" value="<?php echo get_option('placeholder'); ?>"><p class="description" id="placeholder-description"><?php esc_html_e('We suggest e.g. chatme.im', 'conversejs'); ?></p>
+        		<input class="regular-text code" aria-describedby="placeholder-description" id="placeholder" name="placeholder" type="text" placeholder="<?php esc_html_e('e.g. example.com', 'conversejs'); ?>" value="<?php echo get_option('placeholder'); ?>"><p class="description" id="placeholder-description"><?php esc_html_e('We suggest e.g. chatme.im', 'conversejs'); ?></p>
         	</td>
         	</tr> 
             
