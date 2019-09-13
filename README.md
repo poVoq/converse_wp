@@ -7,7 +7,7 @@ See: https://wordpress.org/plugins/conversejs/
 
 - [x] Clean up source of "chatme.im" references
 - [x] Make compatible with ConverseJS release (5.0.1)
-- [ ] Update to ConverseJS 5.0.2
+- [ ] Update to ConverseJS 5.0.3 (might be skipped)
 - [ ] Remove build-in ConverseJS release if possible (reference to seperate install instead)
 - [ ] Optional choice of using self-hosted ConverseJS or CDN version
 - [ ] Include OMEMO 3rd party library
