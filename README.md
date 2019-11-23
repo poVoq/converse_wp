@@ -7,11 +7,12 @@ See: https://wordpress.org/plugins/conversejs/
 
 - [x] Clean up source of "chatme.im" references
 - [x] Make compatible with ConverseJS release (5.0.1)
-- [ ] Update to ConverseJS 5.0.3 (might be skipped)
+- [ ] Update to ConverseJS 5.0.5 or higher (possible issues mandatory /dist?)
 - [ ] Remove build-in ConverseJS release if possible (reference to seperate install instead)
 - [ ] Optional choice of using self-hosted ConverseJS or CDN version
-- [ ] Include OMEMO 3rd party library
-- [ ] Enable new ConverseJS 5.0 settings (like OMEMO by default)
+- [ ] Optional Websockets connection settings
+- [ ] Load OMEMO 3rd party library and enable E2EE by default
+- [ ] Enable additional new ConverseJS 5.x settings
 - [ ] Short code for embedding
 - [ ] Short code for full screen chat page
 
